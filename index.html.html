@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Nails Spa - Luxus Nagelstudio in München</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#111;
+      color:white;
+      overflow-x:hidden;
+    }
+    a{
+      text-decoration:none;
+    }
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      z-index:999;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+    .logo{
+      font-size:30px;
+      font-weight:700;
+      color:#f4d7b2;
+    }
+    .menu{
+      display:flex;
+      gap:30px;
+    }
+    .menu a{
+      color:white;
+      transition:0.3s;
+    }
+    .menu a:hover{
+      color:#f4d7b2;
+    }
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+    }
+    .hero-content{
+      max-width:700px;
+    }
+    .hero h1{
+      font-size:80px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+    .hero p{
+      font-size:20px;
+      color:#ddd;
+      margin-bottom:35px;
+      line-height:1.8;
+    }
+    .btn{
+      display:inline-block;
+      padding:16px 35px;
+      border-radius:50px;
+      background:#f4d7b2;
+      color:#111;
+      font-weight:600;
+      transition:0.3s;
+    }
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow: 0 5px 15px rgba(244, 215, 178, 0.4);
+    }
+    section{
+      padding:100px 0;
+    }
+    .title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+    .title h2{
+      font-size:50px;
+      margin-bottom:15px;
+      color:#f4d7b2;
+    }
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+    .card{
+      background:#1a1a1a;
+      border-radius:25px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+    .card:hover{
+      transform:translateY(-10px);
+    }
+    .card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+    .card-content{
+      padding:25px;
+    }
+    .card h3{
+      font-size:28px;
+      margin-bottom:10px;
+      color:#f4d7b2;
+    }
+    .card p{
+      color:#ccc;
+      line-height:1.8;
+    }
+    .about{
+      background:#181818;
+    }
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+    .about img{
+      width:100%;
+      border-radius:25px;
+      height:600px;
+      object-fit:cover;
+    }
+    .about-text h2{
+      font-size:55px;
+      margin-bottom:25px;
+      color:#f4d7b2;
+    }
+    .about-text p{
+      color:#ddd;
+      line-height:2;
+      margin-bottom:20px;
+    }
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+    .gallery img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      border-radius:20px;
+      transition:0.3s;
+    }
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+    .contact{
+      background:
+      linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+      url('https://images.unsplash.com/photo-1607779097040-26e80aa78e66?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      text-align:center;
+    }
+    .contact h2{
+      font-size:60px;
+      margin-bottom:25px;
+    }
+    .contact p{
+      font-size:20px;
+      margin-bottom:15px;
+      color:#ddd;
+    }
+    .contact-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-top:40px;
+      flex-wrap:wrap;
+    }
+    .outline-btn{
+      background:transparent;
+      border:1px solid white;
+      color:white;
+    }
+    .outline-btn:hover {
+      background: white;
+      color: #111;
+    }
+    footer{
+      background:#0b0b0b;
+      text-align:center;
+      padding:30px;
+      color:#999;
+    }
+    .floating-call{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:#f4d7b2;
+      color:black;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      z-index: 1000;
+      transition: 0.3s;
+    }
+    .floating-call:hover {
+      transform: scale(1.1);
+    }
+    @media(max-width:900px){
+      .hero h1{
+        font-size:55px;
+      }
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+      .about img {
+        height: 400px;
+      }
+      .menu{
+        gap: 15px;
+      }
+    }
+    @media(max-width:600px){
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero h1{
+        font-size:42px;
+      }
+      .hero p{
+        font-size:16px;
+      }
+      .title h2{
+        font-size:38px;
+      }
+      .about-text h2{
+        font-size:40px;
+      }
+      .contact h2{
+        font-size:42px;
+      }
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+      .contact-buttons{
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Blue Nails Spa</div>
+      <div class="menu">
+        <a href="#services">Leistungen</a>
+        <a href="#about">Über uns</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Luxus Nagel-<br>& Beauty Spa</h1>
+      <p>Erstklassige Maniküre, Pediküre und Nagelpflege für Ihr exklusives Wohlbefinden in München.</p>
+      <a href="tel:+49123456789" class="btn">Termin vereinbaren</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="title">
+      <h2>Unsere Leistungen</h2>
+      <p>Exklusive Behandlungen für Schönheit und Entspannung.</p>
+    </div>
+    <div class="services">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=1200&auto=format&fit=crop" alt="Maniküre">
+        <div class="card-content">
+          <h3>Maniküre</h3>
+          <p>Professionelle Hand- und Nagelpflege für elegante Hände und perfekt geformte Nägel.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop" alt="Pediküre">
+        <div class="card-content">
+          <h3>Pediküre</h3>
+          <p>Entspannende Fußpflege inklusive wohltuendem Fußbad, Massage und Premium-Pflege.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.pexels.com/photos/3997389/pexels-photo-3997389.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gel-Nägel">
+        <div class="card-content">
+          <h3>Gel-Nägel</h3>
+          <p>Stilvolle Nagelverlängerung, Naturnagelverstärkung und kreative Nail Art nach Ihren Wünschen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=1200&auto=format&fit=crop" alt="Über Blue Nails Spa">
+      </div>
+      <div class="about-text">
+        <h2>Über Blue Nails Spa</h2>
+        <p>Wir bieten Ihnen exklusive Nagel- und Kosmetikbehandlungen in einer entspannten, eleganten Atmosphäre.</p>
+        <p>Unsere qualifizierten Designer legen höchsten Wert auf Qualität, strenge Hygiene und Ihre absolute Zufriedenheit.</p>
+        <a href="tel:+49123456789" class="btn">Jetzt anrufen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="title">
+      <h2>Galerie</h2>
+      <p>Lassen Sie sich von unseren neuesten Nageldesigns und Trends inspirieren.</p>
+    </div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?q=80&w=1200&auto=format&fit=crop" alt="Nageldesign 1">
+      <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?q=80&w=1200&auto=format&fit=crop" alt="Nageldesign 2">
+      <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200&auto=format&fit=crop" alt="Nageldesign 3">
+      <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?q=80&w=1200&auto=format&fit=crop" alt="Nageldesign 4">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Termin buchen</h2>
+    <p>📍 Schwanseestraße 4A, München, Deutschland</p>
+    <p>📞 +49 89 64957048</p>
+    <p>✉ nguyen318hung@gmail.com</p>
+    <div class="contact-buttons">
+      <a href="tel:++498964957048" class="btn">Jetzt anrufen</a>
+      <a href="https://maps.app.goo.gl/y23HbiigeasgsnoH7" target="_blank" class="btn outline-btn">In Google Maps öffnen</a>
+    </div>
+  </div>
+</section>
+
+<a href="tel:+498964957048" class="floating-call" title="Jetzt anrufen">
+  📞
+</a>
+
+<footer>
+  © 2026 Blue Nails Spa. Alle Rechte vorbehalten.
+</footer>
+
+</body>
+</html>
